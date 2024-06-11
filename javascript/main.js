@@ -1,117 +1,55 @@
-const youtube = document.getElementById("you");
 
-const biggerContainer = document.querySelector(".bigger-contaier");
-
-const kahyaan = document.getElementById("kahyaan");
-const visa = document.getElementById("visa");
-
-const buy = document.querySelectorAll(".js-buy");
- 
-
-
-const addProduct = document.querySelector("#add-pro");
-const procontainer = document.querySelector("#pro-container");
-
-
-
-
-
-
-addProduct.addEventListener("click" , (eo) => {
-  
-const newProduct =     `  
-
-<div class="card mycard" style="width: 18rem;">
-<img style="border-radius: 5px;" src="pexels-cottonbro-3826678.jpg" class="card-img-top" alt="...">
-<div class="card-body">
-  <h5 class="card-title">MY Card title</h5>
-  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  <a id="buy" href="#"  class="js-buy btn btn-primary">buy</a>
- 
-</div>
-</div>
-
-
-`
-
-procontainer.innerHTML += newProduct
-
-})
-
-
-
-
-
-
-
- 
-
-
-
-
-
-// when i click on buy button
-procontainer.addEventListener("click", (eo) => {
-  
-if (eo.target.classList == "js-buy btn btn-primary" ) {
-      biggerContainer.classList.add("active");
-    eo.preventDefault();
-
-    kahyaan.style.display = "none";
-
-    visa.style.display = "block";
-}
-
-
-})
-
-
-
-
-
-
-
-
-const aywaa = document.querySelector(".aywaa");
-
- 
-
-
-aywaa.addEventListener("click", (eo) => {
-  kahyaan.style.display = "block";
-  visa.style.display = "none";
-
-  setTimeout(() => {
-    kahyaan.style.display = "none";
-    biggerContainer.classList.remove("active");
-  }, 1000);
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const dark = document.getElementById("dark");
+// toggle the light & dark mode
+{const dark = document.getElementById("dark");
 const body = document.getElementById("body");
 
 dark.addEventListener("click", (eo) => {
   body.classList.toggle("dark");
-});
+});}
 
 
+const hiddenul = document.getElementById("hiddenul")
+const changecolor = document.getElementById("changecolor")
 
 
+// when hover on HEADER => change color
+{changecolor.addEventListener("mousemove", (eo) => {
+  hiddenul.style.display = "block"
+})
 
+changecolor.addEventListener("mouseout", (eo) => {
+  hiddenul.style.display = "none"
+})}
+
+
+// change HEADER backroundColor when click "header BG"
+headerbg.addEventListener("click", (eo) => {
+  const random = Math.round(Math.random() * 360)
+  header.style.backgroundColor = `hsl(${random}, 44%, 55%)`
+
+  const websiteTitle = document.querySelector("#header > h1")
+  websiteTitle.style.backgroundColor = `hsl(${random}, 44%, 55%)`
+  
+  dark.style.backgroundColor = `hsl(${Math.round( Math.random() * 100)}, 44%, 65%)`
+})
+
+// change title Color when click on "Title color"
+titlebg.addEventListener("click", (eo) => {
+  const allTitle = document.querySelectorAll("h1:not(#header > h1)")
+  const random = Math.round(Math.random() * 360)
+  allTitle.forEach(item => {
+    item.style.backgroundColor = `hsl(${random}, 44%, 55%)`
+  });
+})
+
+const changeColor = () => {
+  return Math.round(Math.random() * 360)
+}
+
+titlecolor.addEventListener("click", (eo) => {
+  const allTitle = document.querySelectorAll("h1:not(#header > h1)")
+
+  allTitle.forEach(item => {
+    item.style.color = `hsl(${changeColor()}, 44%, 55%)`
+  });
+})
